@@ -1,14 +1,16 @@
 import {
   DEFAULT_LOG_FIELD,
+  IterableLog,
   Log,
   getAllSlugs,
   getLogBySlug,
 } from '@/components/Log';
-import { convertMarkdownToHTML } from '@/util';
+
+import { convertMarkdownToHTML } from '@/util/';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 export type LogProps = {
-  data: Log;
+  data: IterableLog;
 };
 
 const LogPage = ({ data }: LogProps) => {
@@ -16,7 +18,7 @@ const LogPage = ({ data }: LogProps) => {
   return (
     <div>
       <h3>{data.title}</h3>
-      <div dangerouslySetInnerHTML={{ __html: data?.content || '' }}></div>
+      <Log log={{ ...data }}></Log>
     </div>
   );
 };
