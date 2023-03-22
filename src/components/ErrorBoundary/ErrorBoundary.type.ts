@@ -2,7 +2,7 @@ import { BaseError } from '@/util';
 import React from 'react';
 
 export type FallBackProps = {
-  error: BaseError;
+  error: BaseError | undefined;
   resetErrorBoundary: (...args: Array<unknown>) => void;
 };
 
@@ -14,7 +14,8 @@ export declare function FallbackRender(
 > | null;
 
 export type ErrorBoundaryState = {
-  error: Error | null;
+  error: BaseError | undefined;
+  didCatch: boolean;
 };
 
 export type DefaultErrorBoundaryProps = {

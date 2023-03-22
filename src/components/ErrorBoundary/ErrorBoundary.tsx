@@ -1,14 +1,10 @@
 import { BaseError } from '@/util';
 import React from 'react';
-import {
-  ErrorBoundaryProps,
-  ErrorBoundaryState,
-  FallBackProps,
-  FallbackRender,
-} from '.';
+import { ErrorBoundaryProps, ErrorBoundaryState } from '.';
 
 export const INITIAL_ERROR_BOUNDARY_STATE = {
-  error: null,
+  error: undefined,
+  didCatch: false,
 };
 
 export class ErrorBoundary extends React.Component<
@@ -17,40 +13,31 @@ export class ErrorBoundary extends React.Component<
 > {
   state: ErrorBoundaryState = INITIAL_ERROR_BOUNDARY_STATE;
 
-  resetErrorBoundary = (...args: Array<unknown>) => {
-    this.props.onReset?.(...args);
-    this.reset();
-  };
-
-  static getDerivedStateFromError(error: BaseError) {
-    return { error };
-  }
-
-  componentDidCatch(error: Error, info: React.ErrorInfo) {
-    console.log('에러 캐칭');
-    this.props.onError?.(error, info);
-  }
-
   reset() {
     this.setState(INITIAL_ERROR_BOUNDARY_STATE);
   }
 
-  componentDidUpdate(
-    prevProps: Readonly<React.PropsWithChildren<ErrorBoundaryProps>>,
-    prevState: Readonly<ErrorBoundaryState>,
-    snapshot?: any
-  ): void {
+  resetErrorBoundary = (...args: Array<unknown>) => {
     const { error } = this.state;
-    if (error !== null && prevState.error !== null) {
+    if (error !== undefined) {
+      this.props.onReset?.(...args);
       this.reset();
     }
+  };
+
+  static getDerivedStateFromError(error: BaseError) {
+    return { error, didCatch: true };
+  }
+
+  componentDidCatch(error: BaseError, info: React.ErrorInfo) {
+    this.props.onError?.(error, info);
   }
 
   render() {
-    const { error } = this.state;
-    const { FallbackComponent, FallbackRenderer } = this.props;
+    const { children, FallbackRenderer, FallbackComponent } = this.props;
+    const { didCatch, error } = this.state;
 
-    if (error !== null) {
+    if (didCatch) {
       const fallbackProps = {
         error,
         resetErrorBoundary: this.resetErrorBoundary,
@@ -60,9 +47,13 @@ export class ErrorBoundary extends React.Component<
         return FallbackRenderer(fallbackProps);
       else if (FallbackComponent)
         return <FallbackComponent {...fallbackProps}></FallbackComponent>;
+      else
+        throw new BaseError(
+          'requires either a fallback, fallbackRender, or FallbackComponent prop'
+        );
     }
 
-    return this.props.children;
+    return children;
   }
 }
 
@@ -73,7 +64,7 @@ export const createErrorBoundedComponent = <P extends JSX.IntrinsicElements>(
   const Wrapper: React.ComponentType<P> = (props) => {
     return (
       <ErrorBoundary {...fallbackProps}>
-        <Component {...props} />
+        <Component {...props}></Component>
       </ErrorBoundary>
     );
   };
