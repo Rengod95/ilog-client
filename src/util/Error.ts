@@ -9,7 +9,7 @@ const DEFAULT_ERROR_MESSAGE = '핸들링되지 않은 오류가 발생했습니�
 export class BaseError<T = unknown> extends Error {
   payload?: T;
 
-  constructor(message?: string, payload?: T) {
+  constructor(message: string, payload?: T) {
     if (message?.length === 0) {
       super(DEFAULT_ERROR_MESSAGE);
     } else super(message);
