@@ -2,40 +2,51 @@ import styled from '@emotion/styled';
 import { Flex, FlexVariant } from '../FlexBox';
 import { ChipProps } from '.';
 
-export const Root = styled.div`
-  width: auto;
-  height: auto;
-`;
-
 export type WrapperProps = {
   variant: 'outlined' | 'filled';
   color?: { start: string; end: string };
 };
 
 export const Wrapper = styled(Flex)<WrapperProps>`
-  position: relative;
   display: inline-flex;
-  border-radius: 50rem;
-  gap: 0.8rem;
+  position: relative;
+  padding: 0.5rem 1rem;
   font-size: ${({ theme }) => theme.size.font.sm};
-  /* border: 1px solid transparent; */
-  padding: 0.3rem 0.5rem;
   color: #fff;
+  border-radius: 50px;
   cursor: pointer;
+
+  @media (max-width: 720px) {
+    font-size: ${({ theme }) => theme.size.font.xs};
+    padding: 0.5rem 1rem;
+  }
+
   ${({ theme, color, variant }) => {
     if (variant === 'filled') {
       return `
-        background : linear-gradient(to right, ${
+        background: linear-gradient(135deg, ${
           color?.start || theme.color.success.main
-        }, ${color?.end || theme.color.primary.main}) border-box;
+        }, ${color?.end || theme.color.primary.main});
       `;
     }
     return `
-      border-width:4px;
-      border-style:solid;
-      border-image: linear-gradient(to right, ${
+      ::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 50px;
+      border: 2px solid transparent;
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;
+      mask-composite: exclude;
+      background: linear-gradient(135deg, ${
         color?.start || theme.color.success.main
-      }, ${color?.end || theme.color.primary.main}); 
+      }, ${color?.end || theme.color.primary.main}) border-box;
+    }
     `;
   }}
 `;

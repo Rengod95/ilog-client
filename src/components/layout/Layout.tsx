@@ -4,6 +4,8 @@ import { ReactNode } from 'react';
 import { AppHeader } from '../App/AppHeader';
 import { HeaderContent } from '../App/AppHeader/HeaderContent';
 import { AppContent } from '../App/AppContent';
+import { AppFooter } from '../App/AppFooter';
+import { FooterContent } from '../App/AppFooter/FooterContent';
 
 export const Wrapper = styled(Flex)`
   width: 100%;
@@ -21,6 +23,9 @@ export const Layout = ({ children }: LayoutProps) => {
         <HeaderContent />
       </AppHeader>
       <AppContent>{children}</AppContent>
+      <AppFooter>
+        <FooterContent></FooterContent>
+      </AppFooter>
     </Wrapper>
   );
 };

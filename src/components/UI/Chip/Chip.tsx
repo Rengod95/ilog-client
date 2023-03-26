@@ -9,10 +9,8 @@ export type ChipProps = {
 
 export const Chip = ({ color, variant, children }: ChipProps) => {
   return (
-    <S.Root>
-      <S.Wrapper flex='rowCenter' color={color} variant={variant}>
-        {children}
-      </S.Wrapper>
-    </S.Root>
+    <S.Wrapper as='div' flex='rowCenter' color={color} variant={variant}>
+      {children}
+    </S.Wrapper>
   );
 };

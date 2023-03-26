@@ -51,8 +51,6 @@ export const getLogBySlug = (slug: string, fields: string[]) => {
 
   const meta = extractMetaFromMatter(matter, DEFAULT_LOG_FIELDS);
   const content = convertMarkdownToMDX(matter.content);
-  // console.log('meta', meta);
-  console.log('content', content);
 
   return { meta, content };
 };

@@ -4,12 +4,11 @@ import styled from '@emotion/styled';
 export const MarkdownWrapper = styled.section`
   width: 100%;
   heigth: auto;
-
   .md {
     padding: 1.2rem;
+    margin-top: 1rem;
     line-height: 1.6rem;
     height: auto;
-    background-color: ${({ theme }) => theme.color.background.paper};
 
     details,
     figcaption,

@@ -1,5 +1,5 @@
 {
-  "extends": ["next", "prettier", "@emotion"],
+  "extends": ["next", "prettier"],
   "settings": {
     "next": {}
   },
