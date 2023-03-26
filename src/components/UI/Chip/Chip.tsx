@@ -1,6 +1,5 @@
 import React from 'react';
 import * as S from './Chip.style';
-import { InheritableProps, PropsOf } from '@/types';
 
 export type ChipProps = {
   variant: 'outlined' | 'filled';
