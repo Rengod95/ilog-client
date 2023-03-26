@@ -1,10 +1,15 @@
 import { Main } from 'next/document';
 export type SizeVariant = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl';
 export type SizeLiteral = Record<SizeVariant, string>;
-
 export type SizeItems = 'font';
-
 export type ThemeSizes = Record<SizeItems, SizeLiteral>;
+
+export type WeightVariant =
+  | 'lightest'
+  | 'lighter'
+  | 'default'
+  | 'bolder'
+  | 'boldest';
 
 export type ColorVariant =
   | 'primary'
@@ -35,4 +40,5 @@ export type BaseTheme = {
   shadow: {
     default: string;
   };
+  weight: Record<WeightVariant, number>;
 };

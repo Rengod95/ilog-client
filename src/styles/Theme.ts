@@ -8,8 +8,8 @@ export const DEFAULT_THEME: BaseTheme = {
       md: '1rem',
       lg: '1.15rem',
       xl: '1.3rem',
-      xxl: '1.4rem',
-      xxxl: '1.5rem',
+      xxl: '1.7rem',
+      xxxl: '2rem',
     },
   },
   color: {
@@ -52,5 +52,12 @@ export const DEFAULT_THEME: BaseTheme = {
   },
   shadow: {
     default: 'rgba(100, 200, 250, 0.07) 0px 4px 12px',
+  },
+  weight: {
+    lightest: 300,
+    lighter: 400,
+    default: 500,
+    bolder: 600,
+    boldest: 700,
   },
 };
