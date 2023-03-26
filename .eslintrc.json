@@ -1,5 +1,10 @@
 {
-  "extends": ["next", "prettier"],
+  "extends": [
+    "next",
+    "prettier",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "settings": {
     "next": {}
   },
@@ -8,11 +13,7 @@
     "node": true,
     "es6": true
   },
-  "plugins": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended"
-  ],
+  "plugins": ["@emotion", "react", "@typescript-eslint"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -27,6 +28,7 @@
     "curly": ["error", "multi-line"],
     "react/jsx-no-undef": "error",
     "no-console": "off",
-    "@emotion/pkg-renaming": "error"
+    "@emotion/pkg-renaming": "error",
+    "@emotion/jsx-import": "error"
   }
 }
