@@ -3,7 +3,6 @@ import {
   FlexVariant,
   FlexStyleConfig,
   StyleConfigKeys,
-  FlexStyle,
   CustomFlexStyleConfig,
 } from '.';
 import { css } from '@emotion/react';
@@ -30,7 +29,10 @@ export const getCustomStyleWithKeys = <K extends StyleConfigKeys>(
   return config;
 };
 
-export const StyleController = (variant: FlexVariant, customStyle?: CustomFlexStyleConfig) => {
+export const StyleController = (
+  variant: FlexVariant,
+  customStyle?: CustomFlexStyleConfig
+) => {
   const config = getVariantStyle(variant);
   const style = getCustomStyleWithKeys(config, customStyle);
 
