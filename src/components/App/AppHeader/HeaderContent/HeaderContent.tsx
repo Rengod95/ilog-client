@@ -1,7 +1,7 @@
 import React from 'react';
 import { ItemList, Wrapper } from '.';
 import Link from 'next/link';
-import { Flex } from '@/components/FlexBox';
+import { Flex } from '@/components/UI/FlexBox';
 
 export type NavItemData = {
   title: string;
@@ -23,7 +23,7 @@ export const HeaderContent = () => {
       <ItemList as='ul' flex='rowEnd'>
         {NAV_ITEM_DATAS.map((data) => {
           return (
-            <Flex as={'li'} flex='columnCenter'>
+            <Flex key={data.url} as={'li'} flex='columnCenter'>
               <Link href={data.url}>{data.title}</Link>
             </Flex>
           );

@@ -1,4 +1,4 @@
-import { Flex } from '@/components/FlexBox';
+import { Flex } from '@/components/UI/FlexBox';
 import styled from '@emotion/styled';
 
 export const Root = styled.header`

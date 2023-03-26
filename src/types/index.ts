@@ -1,1 +1,2 @@
-export * from './type.props';
+export * from './Type.props';
+export * from './Type.default';

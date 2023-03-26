@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React, { useMemo } from 'react';
-import { PolymorphicProps } from '@/types/type.props';
+import { PolymorphicProps } from '@/types/Type.props';
 import { CustomFlexStyleConfig, FlexVariant, StyleController } from '.';
 
 export type FlexProps = { flex: FlexVariant; custom?: CustomFlexStyleConfig };

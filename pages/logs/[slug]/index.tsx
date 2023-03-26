@@ -1,55 +1,56 @@
+import { GetStaticPaths, GetStaticProps } from 'next';
 import {
   DEFAULT_LOG_FIELD,
-  IterableLog,
   Log,
+  LogData,
   getAllSlugs,
   getLogBySlug,
-} from '@/components/Log';
+} from '@/components/Log/Log';
+import { serialize } from 'next-mdx-remote/serialize';
+import rehypePrettyCode from 'rehype-pretty-code';
+import * as S from '@/components/Log/Log/Log.style';
 
-import { convertMarkdownToHTML } from '@/util/';
-import { GetStaticPaths, GetStaticProps } from 'next';
-
-export type LogProps = {
-  data: IterableLog;
+export const CodeRehypeOptions = {
+  theme: 'one-dark-pro',
+  keepBackground: false,
 };
 
-const LogPage = ({ data }: LogProps) => {
-  // console.log('데이터', data);
+export type LogPageProps = {
+  data: LogData;
+};
+
+export const LogPage = ({ data }: LogPageProps) => {
   return (
-    <div>
-      <h3>{data.title}</h3>
-      <Log log={{ ...data }}></Log>
-    </div>
+    <S.PageRoot flex='columnStart'>
+      <S.PageWrapper>
+        <Log {...data}></Log>
+      </S.PageWrapper>
+    </S.PageRoot>
   );
 };
 
 export default LogPage;
 
-type Params = {
-  params: {
-    slug: string;
-  };
-};
-
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  //get slug
   const slug = ctx.params?.slug as string;
-  //get Log
-  const log = getLogBySlug(slug, DEFAULT_LOG_FIELD);
-  // convert content to html
-  const content = await convertMarkdownToHTML(log.content);
-  // parse datas
-  const parsed = JSON.parse(JSON.stringify({ ...log, content }));
+  const { meta, content } = getLogBySlug(slug, DEFAULT_LOG_FIELD);
+
+  const serialized = await serialize(content, {
+    mdxOptions: {
+      rehypePlugins: [[rehypePrettyCode, CodeRehypeOptions]],
+      format: 'mdx',
+    },
+  });
 
   return {
     props: {
-      data: parsed,
+      data: JSON.parse(JSON.stringify({ content: serialized, meta })),
     },
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  //set preserved paths with slugs
+  //get preserved paths with slugs
   const slugs = getAllSlugs();
 
   return {
