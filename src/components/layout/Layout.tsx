@@ -14,11 +14,11 @@ export const Wrapper = styled(Flex)`
 
 export type LayoutProps = {
   children?: ReactNode;
-};
+} & React.HTMLAttributes<HTMLDivElement>;
 
-export const Layout = ({ children }: LayoutProps) => {
+export const Layout = ({ children, className }: LayoutProps) => {
   return (
-    <Wrapper flex='columnStart'>
+    <Wrapper flex='columnStart' className={className}>
       <AppHeader>
         <HeaderContent />
       </AppHeader>

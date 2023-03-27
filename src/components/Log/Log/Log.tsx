@@ -2,8 +2,7 @@ import React from 'react';
 import { MDXLoader } from '../MDX';
 import { LogData } from '.';
 import * as S from './Log.style';
-import { Button } from '@/components/UI/Button';
-import { Flex } from '@/components/UI/FlexBox';
+
 import { Chip } from '@/components/UI/Chip';
 
 const DEFAULT_TAGS = [

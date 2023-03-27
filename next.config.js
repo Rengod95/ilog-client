@@ -7,6 +7,9 @@ const nextConfig = {
     reactMode: 'concurrent',
     mdxRs: true,
   },
+  fontLoaders: [
+    { loader: '@next/font/google', options: { subsets: ['latin'] } },
+  ],
 };
 
 const withMDX = require('@next/mdx')({
