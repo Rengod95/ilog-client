@@ -10,6 +10,35 @@ export const MarkdownWrapper = styled.section`
     line-height: 1.6rem;
     height: auto;
 
+    pre {
+      overflow: auto;
+
+      /* width */
+      ::-webkit-scrollbar {
+        height: 8px;
+        border-radius: 10px;
+        background: ${({ theme }) => theme.color.primary.dark};
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        /* background: ${({ theme }) => theme.color.primary.main}; */
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: transparent;
+        border-radius: 10px;
+        background: ${({ theme }) => theme.color.error.main};
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: transparent;
+        background: ${({ theme }) => theme.color.success.main};
+      }
+    }
+
     details,
     figcaption,
     figure {
@@ -43,10 +72,6 @@ export const MarkdownWrapper = styled.section`
       font-weight: ${({ theme }) => theme.weight.boldest};
     }
     color: ${({ theme }) => theme.color.primary.main};
-
-    pre {
-      max-width: 100%;
-    }
   }
 
   h1 {
