@@ -43,6 +43,10 @@ export const MarkdownWrapper = styled.section`
       font-weight: ${({ theme }) => theme.weight.boldest};
     }
     color: ${({ theme }) => theme.color.primary.main};
+
+    pre {
+      max-width: 100%;
+    }
   }
 
   h1 {

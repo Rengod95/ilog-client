@@ -2,25 +2,7 @@ import React from 'react';
 import { MDXLoader } from '../MDX';
 import { LogData } from '.';
 import * as S from './Log.style';
-
 import { Chip } from '@/components/UI/Chip';
-
-const DEFAULT_TAGS = [
-  'asd',
-  'asdf',
-  'asd',
-  'asdf',
-  'asd',
-  'asdf',
-  'asdf',
-  'asdf',
-  'asdf',
-  'asdf',
-  'asdf',
-  'asdf',
-  'asdf',
-  'asdf',
-];
 
 export const Log = ({ meta, content }: LogData) => {
   return (
@@ -40,7 +22,7 @@ export const Log = ({ meta, content }: LogData) => {
         <S.FooterWrapper flex='columnCenter'>
           <h2 className='tags'>Tags</h2>
           <S.ChipContainer flex='rowCenter'>
-            {DEFAULT_TAGS.map((tag, idx) => {
+            {meta.tags?.map((tag, idx) => {
               return (
                 <Chip variant={'outlined'} key={tag + idx}>
                   {tag}
