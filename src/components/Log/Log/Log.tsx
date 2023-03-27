@@ -9,7 +9,7 @@ export const Log = ({ meta, content }: LogData) => {
     <S.Wrapper as={'main'} flex='columnStart'>
       <S.LogHeader>
         <S.HeaderWrapper flex='columnCenter'>
-          <h1>{meta.title} 테스트 메세지 입니다.</h1>
+          <h1>{meta.title}</h1>
           <img src='' alt='' />
           <h3>{meta.date ?? 'no date'}</h3>
           <h5>{meta.author ?? 'no author'}</h5>
