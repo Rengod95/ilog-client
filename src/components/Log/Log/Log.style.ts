@@ -33,7 +33,7 @@ export const HeaderWrapper = styled(Flex)`
       font-size: 3.25rem;
       text-align: start;
       flex-grow: 3;
-      color: ${({ theme }) => theme.color.primary.light};
+
       @media (max-width: 768px) {
         white-space: pre-wrap;
         font-size: 3rem;
@@ -45,7 +45,6 @@ export const HeaderWrapper = styled(Flex)`
     }
     h2 {
       font-size: ${({ theme }) => theme.size.font.xxl};
-      color: ${({ theme }) => theme.color.primary.light};
     }
 
     img {

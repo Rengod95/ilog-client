@@ -5,7 +5,7 @@ export const MarkdownWrapper = styled.section`
   width: 100%;
   heigth: auto;
   .md {
-    padding: 1.2rem;
+    padding: 1.6rem;
     margin-top: 1rem;
     line-height: 1.6rem;
     height: auto;
@@ -37,6 +37,8 @@ export const MarkdownWrapper = styled.section`
         background: transparent;
         background: ${({ theme }) => theme.color.success.main};
       }
+
+      color: ${({ theme }) => theme.color.text.primary};
     }
 
     details,
@@ -70,6 +72,7 @@ export const MarkdownWrapper = styled.section`
       margin-top: 2.4rem;
       margin-bottom: 1.4rem;
       font-weight: ${({ theme }) => theme.weight.boldest};
+      color: ${({ theme }) => theme.color.primary.dark};
     }
     color: ${({ theme }) => theme.color.primary.main};
   }
@@ -77,7 +80,7 @@ export const MarkdownWrapper = styled.section`
   h1 {
     font-size: ${({ theme }) => theme.size.font.xxxl};
     line-height: 3rem;
-    border-bottom: 1px solid ${({ theme }) => theme.color.success.light};
+    border-bottom: 1px solid ${({ theme }) => theme.color.primary.dark};
   }
 
   h2 {
@@ -89,18 +92,18 @@ export const MarkdownWrapper = styled.section`
   h3 {
     line-height: 3rem;
     font-size: ${({ theme }) => theme.size.font.xl};
-    border-bottom: 1px solid ${({ theme }) => theme.color.success.light};
+    border-bottom: 1px solid ${({ theme }) => theme.color.primary.dark};
   }
 
   h4 {
     line-height: 3rem;
-    border-bottom: 1px solid ${({ theme }) => theme.color.success.light};
+    border-bottom: 1px solid ${({ theme }) => theme.color.primary.dark};
     font-size: ${({ theme }) => theme.size.font.lg};
   }
 
   h5 {
     line-height: 3rem;
-    border-bottom: 1px solid ${({ theme }) => theme.color.success.light};
+    border-bottom: 1px solid ${({ theme }) => theme.color.primary.dark};
     font-size: ${({ theme }) => theme.size.font.md};
   }
 
@@ -111,7 +114,6 @@ export const MarkdownWrapper = styled.section`
   p {
     line-height: 1.6rem;
     font-size: ${({ theme }) => theme.size.font.md};
-    color: ${({ theme }) => theme.color.primary.dark};
   }
 
   blockquote {
@@ -119,7 +121,6 @@ export const MarkdownWrapper = styled.section`
     padding: 0 1em;
     border-left: 0.25em solid ${({ theme }) => theme.color.text.hint};
     background-color: ${({ theme }) => theme.color.secondary.dark};
-    color: ${({ theme }) => theme.color.primary.dark};
   }
 
   ul,
@@ -127,16 +128,14 @@ export const MarkdownWrapper = styled.section`
     margin-top: 0;
     margin-bottom: 0;
     padding-left: 1.2rem;
-    color: ${({ theme }) => theme.color.primary.dark};
   }
 
   pre {
     background-color: #101010;
-    border-radius: 0.8rem;
+    border-radius: 0.8rem 0.8rem 5px 5px;
     box-shadow: ${({ theme }) => theme.shadow.default};
     padding: 1rem;
     font-size: ${({ theme }) => theme.size.font.md};
-    color: ${({ theme }) => theme.color.primary.dark};
 
     @media (max-width: 720px) {
       font-size: ${({ theme }) => theme.size.font.xs};
@@ -153,7 +152,7 @@ export const MarkdownWrapper = styled.section`
   details {
     margin-top: 0;
     margin-bottom: 2.4rem;
-    color: ${({ theme }) => theme.color.primary.dark};
+    color: ${({ theme }) => theme.color.text.primary};
   }
 
   blockquote > :first-child {
@@ -199,6 +198,12 @@ export const MarkdownWrapper = styled.section`
 
   dl {
     padding: 0;
+  }
+
+  li > code {
+    background-color: ${({ theme }) => theme.color.success.dark};
+    font-size: ${({ theme }) => theme.size.font.md};
+    color: ${({ theme }) => theme.color.text.secondary};
   }
 
   g-emoji {
