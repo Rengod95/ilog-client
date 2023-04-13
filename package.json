@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "NODE_OPTIONS='--inspect' next dev ",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -20,6 +20,7 @@
     "@types/react-dom": "18.0.10",
     "cookie-storage": "^6.1.0",
     "date-fns": "^2.29.3",
+    "date-fns-tz": "^2.0.0",
     "eslint": "^8.35.0",
     "eslint-config-next": "13.1.6",
     "eslint-plugin-emotion": "^11.0.0",
@@ -42,6 +43,8 @@
     "zod": "^3.20.3"
   },
   "devDependencies": {
+    "@emotion/eslint-plugin": "^11.10.0",
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-next": "^0.0.0",
     "eslint-plugin-prettier": "^4.2.1",

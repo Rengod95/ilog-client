@@ -1,5 +1,12 @@
-import { Main } from 'next/document';
-export type SizeVariant = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl';
+export type SizeVariant =
+  | 'xs'
+  | 'sm'
+  | 'md'
+  | 'lg'
+  | 'xl'
+  | 'xxl'
+  | 'xml'
+  | 'xxxl';
 export type SizeLiteral = Record<SizeVariant, string>;
 export type SizeItems = 'font';
 export type ThemeSizes = Record<SizeItems, SizeLiteral>;
@@ -35,6 +42,7 @@ export type BaseTheme = {
     background: {
       default: string;
       paper: string;
+      paperLighter: string;
     };
   } & Record<ColorVariant, ColorSetRecord>;
   shadow: {

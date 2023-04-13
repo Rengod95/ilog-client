@@ -9,7 +9,7 @@ export type NavItemData = {
 };
 
 export const NAV_ITEM_DATAS: Array<NavItemData> = [
-  { title: '로그', url: '/logs' },
+  { title: '로그', url: '/log' },
   { title: '소개', url: '/introduction' },
   { title: '포트폴리오', url: '/portfolio' },
 ];
@@ -18,7 +18,7 @@ export const HeaderContent = () => {
   return (
     <Wrapper flex='rowStart' as='nav'>
       <Flex as='h2' flex='rowStart'>
-        I-Log
+        <Link href={'/log'}>I-Log</Link>
       </Flex>
       <ItemList as='ul' flex='rowEnd'>
         {NAV_ITEM_DATAS.map((data) => {

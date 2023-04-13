@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Flex } from '@/components/UI/FlexBox';
 
 export const Root = styled.main`
   width: 100%;
@@ -6,8 +7,8 @@ export const Root = styled.main`
   margin-top: 64px;
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(Flex)`
   margin: 0 auto;
   width: 100%;
-  max-width: 45rem;
+  max-width: 55rem;
 `;

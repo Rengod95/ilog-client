@@ -1,13 +1,12 @@
 import { BaseError } from '.';
 
-export const request = <TResponse>(
+export const request = async <TResponse>(
   url: string,
-  request_config: RequestInit = {}
+  options: RequestInit = {}
 ): Promise<TResponse> => {
-  return fetch(url, request_config)
+  return fetch(url, options)
     .then((res) => res.json())
     .catch((error: Error) => {
-      const { message } = error;
-      throw new BaseError(message);
+      throw new BaseError(error?.message);
     });
 };

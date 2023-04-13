@@ -8,6 +8,7 @@ export const DEFAULT_THEME: BaseTheme = {
       md: '1rem',
       lg: '1.15rem',
       xl: '1.3rem',
+      xml: '1.5rem',
       xxl: '1.7rem',
       xxxl: '2rem',
     },
@@ -23,6 +24,7 @@ export const DEFAULT_THEME: BaseTheme = {
     background: {
       default: '#202529',
       paper: '#1F2833',
+      paperLighter: '#2A3644',
     },
     primary: {
       main: '#66FCF1',

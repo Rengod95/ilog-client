@@ -21,14 +21,18 @@
     }
   },
   "rules": {
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-extra-non-null-assertion": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@emotion/jsx-import": "off",
+    "react/prop-types": "off",
     "prefer-const": "error",
     "linebreak-style": ["error", "unix"],
     "no-useless-escape": "error",
-    "arrow-body-style": ["error", "as-needed"],
     "curly": ["error", "multi-line"],
     "react/jsx-no-undef": "error",
     "no-console": "off",
-    "@emotion/pkg-renaming": "error",
-    "@emotion/jsx-import": "error"
+    "@emotion/pkg-renaming": "error"
   }
 }

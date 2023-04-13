@@ -8,7 +8,7 @@ export type ContentProps = {
 export const AppContent = ({ children }: ContentProps) => {
   return (
     <S.Root>
-      <S.Wrapper>{children}</S.Wrapper>
+      <S.Wrapper flex={'rowCenter'}>{children}</S.Wrapper>
     </S.Root>
   );
 };

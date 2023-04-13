@@ -20,6 +20,7 @@ export class ErrorBoundary extends React.Component<
   resetErrorBoundary = (...args: Array<unknown>) => {
     const { error } = this.state;
     if (error !== undefined) {
+      // eslint-disable-next-line react/prop-types
       this.props.onReset?.(...args);
       this.reset();
     }
@@ -30,10 +31,12 @@ export class ErrorBoundary extends React.Component<
   }
 
   componentDidCatch(error: BaseError, info: React.ErrorInfo) {
+    // eslint-disable-next-line react/prop-types
     this.props.onError?.(error, info);
   }
 
   render() {
+    // eslint-disable-next-line react/prop-types
     const { children, FallbackRenderer, FallbackComponent } = this.props;
     const { didCatch, error } = this.state;
 
@@ -43,14 +46,15 @@ export class ErrorBoundary extends React.Component<
         resetErrorBoundary: this.resetErrorBoundary,
       };
 
-      if (typeof FallbackRenderer === 'function')
+      if (typeof FallbackRenderer === 'function') {
         return FallbackRenderer(fallbackProps);
-      else if (FallbackComponent)
+      } else if (FallbackComponent) {
         return <FallbackComponent {...fallbackProps}></FallbackComponent>;
-      else
+      } else {
         throw new BaseError(
           'requires either a fallback, fallbackRender, or FallbackComponent prop'
         );
+      }
     }
 
     return children;

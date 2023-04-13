@@ -27,7 +27,7 @@ export const setViewBoxSize = (
   size: ViewBoxSize,
   iconName: IconName
 ): ViewBoxObject => {
-  let IconViewBoxSize = ICON_SET[iconName]?.viewBoxSize;
+  const IconViewBoxSize = ICON_SET[iconName]?.viewBoxSize;
 
   //undefined
   if (!IconViewBoxSize) {
@@ -35,8 +35,7 @@ export const setViewBoxSize = (
   }
   //ViewBoxString
   if (typeof IconViewBoxSize === 'string') {
-    let parsed;
-    parsed = IconViewBoxSize.split(' ').map((val) => Number(val));
+    const parsed = IconViewBoxSize.split(' ').map((val) => Number(val));
     return {
       minX: parsed[0],
       minY: parsed[1],

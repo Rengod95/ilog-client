@@ -1,3 +1,5 @@
+import React from 'react';
+
 export type AsProp<C extends React.ElementType> = {
   as?: C;
 };
@@ -7,16 +9,16 @@ export type PropsOf<
 > = JSX.LibraryManagedAttributes<C, React.ComponentPropsWithoutRef<C>>;
 
 export type ExtendableProps<
-  ExtendedProps = {},
-  OverrodeProps = {}
+  ExtendedProps = object,
+  OverrodeProps = object
 > = OverrodeProps & Omit<ExtendedProps, keyof OverrodeProps>;
 
 export type InheritableProps<
   C extends React.ElementType,
-  Props = {}
+  Props = object
 > = ExtendableProps<PropsOf<C>, Props>;
 
 export type PolymorphicProps<
   C extends React.ElementType,
-  Props = {}
+  Props = object
 > = InheritableProps<C, Props & AsProp<C>>;

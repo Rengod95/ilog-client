@@ -9,6 +9,7 @@ import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkMdx from 'remark-mdx';
 import remarkStringify from 'remark-stringify';
+import { DefaultLogFields } from '@/components/Log/Log';
 
 //디렉토리 내의 모든 파일 이름 반환
 export const getFileNames = (directory: string): string[] => {
@@ -57,4 +58,19 @@ export const convertMarkdownToMDX = (file: string): string => {
     .use(remarkStringify)
     .processSync(file)
     .toString();
+};
+
+export const extractMetaFromMatter = <TInput extends matter.Input>(
+  matter: matter.GrayMatterFile<TInput>,
+  fields: string[]
+) => {
+  const result: DefaultLogFields = {};
+
+  fields?.forEach((field: string) => {
+    if (typeof matter.data[field] !== undefined) {
+      result[field as keyof DefaultLogFields] = matter.data[field];
+    }
+  });
+
+  return result;
 };

@@ -5,11 +5,12 @@ import * as S from './Log.style';
 import { Chip } from '@/components/UI/Chip';
 
 export const Log = ({ meta, content }: LogData) => {
+  console.log(meta);
   return (
     <S.Wrapper as={'main'} flex='columnStart'>
       <S.LogHeader>
         <S.HeaderWrapper flex='columnCenter'>
-          <h1>{meta.title}</h1>
+          <h1>{meta.title || 'No Title'}</h1>
           <img src='' alt='' />
           <h3>{meta.date ?? 'no date'}</h3>
           <h5>{meta.author ?? 'no author'}</h5>
@@ -22,13 +23,14 @@ export const Log = ({ meta, content }: LogData) => {
         <S.FooterWrapper flex='columnCenter'>
           <h2 className='tags'>Tags</h2>
           <S.ChipContainer flex='rowCenter'>
-            {meta.tags?.map((tag, idx) => {
-              return (
-                <Chip variant={'outlined'} key={tag + idx}>
-                  {tag}
-                </Chip>
-              );
-            })}
+            {meta.tags &&
+              meta.tags.map((tag, idx) => {
+                return (
+                  <Chip variant={'outlined'} key={tag + idx}>
+                    {tag}
+                  </Chip>
+                );
+              })}
           </S.ChipContainer>
         </S.FooterWrapper>
       </S.LogFooter>

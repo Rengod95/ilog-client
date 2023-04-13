@@ -5,10 +5,11 @@ export const Wrapper = styled(Flex)`
   height: 100%;
   padding: 0 1.2rem 0 1.2rem;
   gap: 1.2rem;
-  h2 {
+  h2 > a {
     width: auto;
     white-space: nowrap;
     height: auto;
+
     ${({ theme }) => {
       return `
             font-size: ${theme.size.font.xl};

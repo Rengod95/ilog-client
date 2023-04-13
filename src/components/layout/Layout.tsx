@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Flex } from '../UI/FlexBox';
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { AppHeader } from '../App/AppHeader';
 import { HeaderContent } from '../App/AppHeader/HeaderContent';
 import { AppContent } from '../App/AppContent';

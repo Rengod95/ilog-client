@@ -14,8 +14,11 @@ export const Wrapper = styled(Flex)<WrapperProps>`
   font-size: ${({ theme }) => theme.size.font.sm};
   color: #fff;
   border-radius: 50px;
-  cursor: pointer;
-
+  & > a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+  }
   @media (max-width: 720px) {
     font-size: ${({ theme }) => theme.size.font.xs};
     padding: 0.5rem 1rem;
