@@ -34,20 +34,20 @@ export const PortfolioPage = () => {
   console.log('페이지 렌더');
   return (
     <div>
-      <Button
-        onClick={() => setErrorShow(true)}
-        size={'large'}
-        variant={'default'}
-      >
-        클릭 시 에러 생성
-      </Button>
-      <ErrorBoundary
-        FallbackComponent={ErrorFallback}
-        onError={(error, info) => console.log(error, info.componentStack)}
-        onReset={() => setErrorShow(false)}
-      >
-        {errorShow && <Bomb />}
-      </ErrorBoundary>
+      {/*<Button*/}
+      {/*  onClick={() => setErrorShow(true)}*/}
+      {/*  size={'large'}*/}
+      {/*  variant={'default'}*/}
+      {/*>*/}
+      {/*  클릭 시 에러 생성*/}
+      {/*</Button>*/}
+      {/*<ErrorBoundary*/}
+      {/*  FallbackComponent={ErrorFallback}*/}
+      {/*  onError={(error, info) => console.log(error, info.componentStack)}*/}
+      {/*  onReset={() => setErrorShow(false)}*/}
+      {/*>*/}
+      {/*  {errorShow && <Bomb />}*/}
+      {/*</ErrorBoundary>*/}
     </div>
   );
 };

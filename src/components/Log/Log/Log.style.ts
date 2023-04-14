@@ -77,17 +77,9 @@ export const FooterWrapper = styled(Flex)`
   background-color: ${({ theme }) => theme.color.background.paper};
   border-top: 1px dashed ${({ theme }) => theme.color.success.dark};
   border-bottom: 1px dashed ${({ theme }) => theme.color.success.dark};
-  @media (max-width: 480px) {
-    .tags {
-      display: none;
-    }
-  }
 `;
 export const ChipContainer = styled(Flex)`
+  width: 100%;
   gap: 0.8rem;
-  height: auto;
   flex-wrap: wrap;
-  @media (max-width: 480px) {
-    display: none;
-  }
 `;

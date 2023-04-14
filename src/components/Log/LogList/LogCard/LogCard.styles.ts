@@ -10,11 +10,8 @@ export const Root = styled.div`
 export const Wrapper = styled(Flex)`
   width: 100%;
   height: 100%;
-  background-color: ${({ theme }) => theme.color.background.paper};
   border-radius: 10px;
   transition: all 150ms ease-in-out;
-  box-shadow: rgba(224, 242, 255, 0.3) 0px 1px 2px 0px,
-    rgba(102, 252, 241, 0.18) 0px 2px 6px 2px;
 
   &:hover {
     transform: scale(1.03);
@@ -28,13 +25,6 @@ export const Header = styled(Flex)`
   width: 100%;
   height: 50%;
   border-radius: 1px;
-
-  img {
-    border-radius: 10px;
-    border-style: none;
-    max-width: 100%;
-    box-sizing: content-box;
-  }
 `;
 
 export const Body = styled(Flex)`
@@ -45,8 +35,13 @@ export const Body = styled(Flex)`
 `;
 
 export const ResponsiveImage = styled(Image)`
-  width: 95%;
+  width: 90%;
   height: 90%;
+
+  border-radius: 7px;
+  border-style: none;
+  max-width: 100%;
+  box-sizing: content-box;
 `;
 
 export const TitleContainer = styled(Flex)`

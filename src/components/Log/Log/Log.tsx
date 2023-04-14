@@ -21,17 +21,20 @@ export const Log = ({ meta, content }: LogData) => {
       </S.LogBody>
       <S.LogFooter>
         <S.FooterWrapper flex='columnCenter'>
-          <h2 className='tags'>Tags</h2>
-          <S.ChipContainer flex='rowCenter'>
-            {meta.tags &&
-              meta.tags.map((tag, idx) => {
-                return (
-                  <Chip variant={'outlined'} key={tag + idx}>
-                    {tag}
-                  </Chip>
-                );
-              })}
-          </S.ChipContainer>
+          {meta.tags && (
+            <>
+              <h2>Tags</h2>
+              <S.ChipContainer flex='rowCenter'>
+                {meta.tags.map((tag, idx) => {
+                  return (
+                    <Chip variant={'outlined'} key={tag + idx}>
+                      {tag}
+                    </Chip>
+                  );
+                })}
+              </S.ChipContainer>
+            </>
+          )}
         </S.FooterWrapper>
       </S.LogFooter>
     </S.Wrapper>

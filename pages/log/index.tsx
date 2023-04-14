@@ -5,10 +5,21 @@ import {
   getInfiniteLogList,
   LogCardList,
 } from '@/components/Log/LogList/LogCardList';
+import Head from 'next/head';
 
 export const LogListPage = () => {
   return (
     <>
+      <Head>
+        <title>I-log</title>
+        <meta name='description' content='현직 대학생의 개발기 I-Log' />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta
+          httpEquiv='Content-Security-Policy'
+          content='upgrade-insecure-requests'
+        />
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
       <LogCardList></LogCardList>
     </>
   );

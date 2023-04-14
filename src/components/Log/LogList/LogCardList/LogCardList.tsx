@@ -2,6 +2,7 @@ import React from 'react';
 import { useInfiniteLogList } from '@/components/Log/LogList/LogCardList/LogCardList.hooks';
 import { LogCard } from '@/components/Log/LogList/LogCard';
 import * as S from './LogCardList.styles';
+import { Spinner } from '@/components/UI/Spinner';
 
 export type LogCardListProps = React.PropsWithoutRef<React.PropsWithChildren>;
 export const LogCardList = ({ children }: LogCardListProps) => {
@@ -15,7 +16,7 @@ export const LogCardList = ({ children }: LogCardListProps) => {
         </S.IntroWrapper>
         <S.LogItemWrapper flex={'rowStart'}>
           {query.isLoading ? (
-            <div>is loading...</div>
+            <Spinner />
           ) : query.isError ? (
             <div>{error}</div>
           ) : (
