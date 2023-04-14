@@ -8,6 +8,8 @@ export type WrapperProps = {
 };
 
 export const Wrapper = styled(Flex)<WrapperProps>`
+  min-width: 5rem;
+  min-height: 1rem;
   display: inline-flex;
   position: relative;
   padding: 0.5rem 1rem;
@@ -22,6 +24,8 @@ export const Wrapper = styled(Flex)<WrapperProps>`
   @media (max-width: 720px) {
     font-size: ${({ theme }) => theme.size.font.xs};
     padding: 0.5rem 1rem;
+    min-width: 3rem;
+    min-height: 0.5rem;
   }
 
   ${({ theme, color, variant }) => {
