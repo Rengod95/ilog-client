@@ -16,23 +16,23 @@ export const Wrapper = styled(Flex)``;
 
 export const LogHeader = styled.section`
   width: 100%;
-  min-height: 20rem;
   background-color: ${({ theme }) => theme.color.background.paper};
 `;
 
 export const HeaderWrapper = styled(Flex)`
-  padding: 1.2rem;
+  padding: 1.6rem;
   min-height: inherit;
-  text-align: center;
+  text-align: left;
 
   color: ${({ theme }) => theme.color.primary.dark};
   gap: ${({ theme }) => theme.size.font.sm};
   & {
     h1 {
-      padding: 2rem 0rem 2rem 0.5rem;
+      line-height: 5rem;
       font-size: 3.25rem;
       text-align: start;
-      flex-grow: 3;
+      width: 100%;
+      height: auto;
 
       @media (max-width: 768px) {
         white-space: pre-wrap;
@@ -43,20 +43,21 @@ export const HeaderWrapper = styled(Flex)`
         font-size: 2.25rem;
       }
     }
-    h2 {
-      font-size: ${({ theme }) => theme.size.font.xxl};
-    }
-
     img {
       width: 100%;
+      height: auto;
       max-width: 560px;
       max-height: 300px;
     }
     h3 {
-      flex-grow: 1;
+      text-align: end;
+      color: ${({ theme }) => theme.color.text.disabled};
+      width: 90%;
     }
     h5 {
-      flex-grow: 1;
+      text-align: end;
+      color: ${({ theme }) => theme.color.text.disabled};
+      width: 90%;
     }
   }
 `;

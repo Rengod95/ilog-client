@@ -18,7 +18,7 @@ export const HeaderContent = () => {
   return (
     <Wrapper flex='rowStart' as='nav'>
       <Flex as='h2' flex='rowStart'>
-        <Link href={'/log'}>I-Log</Link>
+        <Link href={'/'}>I-Log</Link>
       </Flex>
       <ItemList as='ul' flex='rowEnd'>
         {NAV_ITEM_DATAS.map((data) => {

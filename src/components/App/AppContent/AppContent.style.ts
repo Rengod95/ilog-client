@@ -3,7 +3,6 @@ import { Flex } from '@/components/UI/FlexBox';
 
 export const Root = styled.main`
   width: 100%;
-
   margin-top: 64px;
 `;
 
@@ -12,4 +11,9 @@ export const Wrapper = styled(Flex)`
   height: 100%;
   width: 100%;
   max-width: 55rem;
+`;
+
+export const HomeContainer = styled.div`
+  width: 100%;
+  min-height: 500px;
 `;
